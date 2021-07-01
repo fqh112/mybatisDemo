@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="uTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="login">
+    <select id="user" resultType="com.gh.entity.Login">
+        select * from login
+    </select>
+
+    <select id="findLoginById" resultType="com.gh.entity.Login" parameterType="java.lang.Integer">
+        select * from login where login_id = #{login_id}
+    </select>
+
+    <select id="findLoginByUsername" resultType="com.gh.entity.Login">
+        select * from login where login_name like "%${value}%"
+    </select>
+
+    <insert id="insertUser" parameterType="com.gh.entity.Login">
+        insert into login values (null,#{login_name},#{password},#{phone})
+    </insert>
+
+    <delete id="deleteById">
+        delete from login where login_id=#{login_id}
+    </delete>
+
+    <update id="updateById" parameterType="com.gh.entity.Login">
+        update login set login_name=#{login_name},phone=#{phone} where login_id=#{login_id}
+    </update>
+</mapper>

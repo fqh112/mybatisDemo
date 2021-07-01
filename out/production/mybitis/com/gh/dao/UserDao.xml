@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="uTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gh.dao.UserDao">
+    <select id="findAll" resultType="Login">
+        select * from login
+    </select>
+
+    <insert id="insertUser" parameterType="Login">
+        insert into login values (null,#{login_name},#{password},#{phone})
+    </insert>
+
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        delete from Login where login_id=#{assd}
+    </delete>
+
+    <select id="selectByName" resultType="Login">
+        select * from Login where Login_name like "%${value}%"
+    </select>
+</mapper>

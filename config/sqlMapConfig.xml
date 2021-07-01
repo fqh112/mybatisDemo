@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="uTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="db.properties"/>
+    <typeAliases>
+        <!--起别名-->
+        <!-- <typeAlias type="com.gh.entity.Login" alias="login"></typeAlias>-->
+        <package name="com.gh.entity"/>
+    </typeAliases>
+    <environments default="mybatis">
+        <environment id="mybatis">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="login.xml"></mapper>
+        <package name="com.gh.dao"></package>
+    </mappers>
+</configuration>
